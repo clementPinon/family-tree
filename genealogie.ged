@@ -74503,10 +74503,14 @@
 1 FAMC @F900130@
 1 FAMS @F900103@
 0 @I900013@ INDI
-1 NAME Sylvain /ARQUIÉ/
-2 GIVN Sylvain
+1 NAME Sylvain Edouard Paul /ARQUIÉ/
+2 GIVN Sylvain Edouard Paul
 2 SURN ARQUIÉ
 1 SEX M
+1 BIRT
+2 DATE 15 APR 1956
+2 PLAC Casablanca, , , , MAROC
+1 NOTE Source : dossier de succession de Laurent Arquié (2014), acte de notoriété et acte de décès intégral de Henri Jean Arquié.
 1 FAMC @F900104@
 1 FAMS @F900105@
 0 @I900014@ INDI
@@ -74568,8 +74572,11 @@
 2 DATE 5 OCT 2009
 2 PLAC Antony, 92160, Hauts-de-Seine, Île-de-France, FRANCE
 1 NOTE Source : arbre MyHeritage (Jean Henri Arquié, 1915-2009, marié à Claire Allard, 2 enfants).
-2 CONT Dates et lieux : fichier INSEE des décès (acte-deces.fr), enregistré sous « Henri Jean ARQUIE », décédé à 94 ans.
+2 CONT Prénoms à l'état civil : Henri Jean (appelé Jean Henri dans la famille). Domicilié à Paris 14e à son décès.
+2 CONT Source : dossier de succession de Laurent Arquié (2014), acte de notoriété et acte de décès intégral de Henri Jean Arquié.
+1 FAMC @F900140@
 1 FAMS @F900104@
+1 FAMS @F900141@
 0 @I900021@ INDI
 1 NAME Claire /ALLARD/
 2 GIVN Claire
@@ -74579,10 +74586,32 @@
 2 DATE 11 JUL 1917
 1 DEAT
 2 DATE 31 JUL 1985
-2 PLAC , , , , ESPAGNE
+2 PLAC Santa Ponsa (La Caleta), , Majorque, Baléares, ESPAGNE
 1 NOTE Source : arbre MyHeritage (Jean Henri Arquié, 1915-2009, marié à Claire Allard, 2 enfants).
-2 CONT Décès 1985 confirmé par la famille. Date exacte et pays : fichier INSEE des décès (acte-deces.fr), seule Claire Allard née en 1917 et décédée en 1985, à l'âge de 68 ans.
+2 CONT Source : dossier de succession de Laurent Arquié (2014), acte de notoriété et acte de décès intégral de Henri Jean Arquié. Première épouse d'Henri Jean Arquié.
 1 FAMS @F900104@
+0 @I900070@ INDI
+1 NAME Paul /ARQUIÉ/
+2 GIVN Paul
+2 SURN ARQUIÉ
+1 SEX M
+1 NOTE Source : dossier de succession de Laurent Arquié (2014), acte de notoriété et acte de décès intégral de Henri Jean Arquié.
+1 FAMS @F900140@
+0 @I900071@ INDI
+1 NAME Albertine Georgette /FRANÇOIS/
+2 GIVN Albertine Georgette
+2 SURN FRANÇOIS
+1 SEX F
+1 NOTE Source : dossier de succession de Laurent Arquié (2014), acte de notoriété et acte de décès intégral de Henri Jean Arquié.
+1 FAMS @F900140@
+0 @I900072@ INDI
+1 NAME Jeannine Marthe /FÉLIX/
+2 GIVN Jeannine Marthe
+2 SURN FÉLIX
+1 SEX F
+1 NOTE Seconde épouse d'Henri Jean Arquié.
+2 CONT Source : dossier de succession de Laurent Arquié (2014), acte de notoriété et acte de décès intégral de Henri Jean Arquié.
+1 FAMS @F900141@
 0 @I900022@ INDI
 1 NAME Antoine /RAÏOLA/
 2 GIVN Antoine
@@ -105861,4 +105890,14 @@
 1 MARR
 2 DATE 12 DEC 1815
 2 PLAC Grosrouvre, 78289, Yvelines, Ile-de-France, FRANCE
+0 @F900140@ FAM
+1 HUSB @I900070@
+1 WIFE @I900071@
+1 CHIL @I900020@
+0 @F900141@ FAM
+1 HUSB @I900020@
+1 WIFE @I900072@
+1 MARR
+2 DATE 24 NOV 1990
+2 PLAC Choisy-le-Roi, , Val-de-Marne, Île-de-France, FRANCE
 0 TRLR
