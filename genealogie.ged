@@ -74561,16 +74561,27 @@
 2 GIVN Jean Henri
 2 SURN ARQUIÉ
 1 SEX M
-1 DEAT Y
-1 NOTE Source : livret de famille Arquié-Raïola.
+1 BIRT
+2 DATE 14 FEB 1915
+2 PLAC Bourret, , Tarn-et-Garonne, , FRANCE
+1 DEAT
+2 DATE 5 OCT 2009
+2 PLAC Antony, 92160, Hauts-de-Seine, Île-de-France, FRANCE
+1 NOTE Source : arbre MyHeritage (Jean Henri Arquié, 1915-2009, marié à Claire Allard, 2 enfants).
+2 CONT Dates et lieux : fichier INSEE des décès (acte-deces.fr), enregistré sous « Henri Jean ARQUIE », décédé à 94 ans.
 1 FAMS @F900104@
 0 @I900021@ INDI
 1 NAME Claire /ALLARD/
 2 GIVN Claire
 2 SURN ALLARD
 1 SEX F
-1 DEAT Y
-1 NOTE Source : livret de famille Arquié-Raïola.
+1 BIRT
+2 DATE 11 JUL 1917
+1 DEAT
+2 DATE 31 JUL 1985
+2 PLAC , , , , ESPAGNE
+1 NOTE Source : arbre MyHeritage (Jean Henri Arquié, 1915-2009, marié à Claire Allard, 2 enfants).
+2 CONT Décès 1985 confirmé par la famille. Date exacte et pays : fichier INSEE des décès (acte-deces.fr), seule Claire Allard née en 1917 et décédée en 1985, à l'âge de 68 ans.
 1 FAMS @F900104@
 0 @I900022@ INDI
 1 NAME Antoine /RAÏOLA/
