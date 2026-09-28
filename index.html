@@ -75,6 +75,31 @@ text{pointer-events:none;font-family:var(--font);fill:#2A2F40}
 .res small{color:var(--muted);font-weight:500}
 .res .tag{margin-left:auto;font-size:.7rem;font-weight:700;padding:2px 8px;border-radius:999px;background:hsl(152 50% 88%);color:#2A2F40;white-space:nowrap}
 .res .none{padding:10px;color:var(--muted);font-size:.9rem}
+.pov{position:fixed;inset:0;z-index:60;background:rgba(15,17,23,.45);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;padding:24px}
+.pov[hidden]{display:none}
+.pmodal{background:var(--surface);border:1px solid var(--line);border-radius:22px;box-shadow:0 30px 80px rgba(0,0,0,.25);width:min(1100px,100%);max-height:calc(100vh - 48px);display:flex;flex-direction:column;overflow:hidden}
+.phead{display:flex;align-items:center;justify-content:space-between;padding:16px 22px;border-bottom:1px solid var(--line);font-weight:700;color:var(--muted);font-size:.85rem;letter-spacing:.02em}
+.phead button{border:0;background:var(--bg);width:32px;height:32px;border-radius:50%;cursor:pointer;color:var(--ink);font-size:.9rem}
+#pathBody{padding:20px 22px;overflow:auto}
+.plabel span{color:var(--muted);font-weight:600;font-size:.85rem}
+.plabel h3{margin:2px 0 4px;font-size:1.5rem;font-weight:800;letter-spacing:-.02em}
+.plabel p{margin:0;color:var(--muted);font-size:.9rem}
+.pscroll{overflow:auto;margin:18px 0 10px;padding:4px}
+.pcanvas{position:relative;margin:0 auto}
+.pcanvas svg{position:absolute;inset:0;width:auto;height:auto;overflow:visible}
+.pl{fill:none;stroke:var(--emptyStroke);stroke-width:2}
+.pl.sp{stroke-dasharray:4 4}
+.pinf{fill:var(--muted);font-size:13px;text-anchor:middle;font-weight:700}
+.pbox{position:absolute;display:flex;flex-direction:column;justify-content:center;gap:2px;padding:8px 12px;border-radius:14px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer;text-align:left;font:inherit;transition:transform .15s,box-shadow .15s}
+.pbox:hover{transform:translateY(-1px);box-shadow:var(--shadow)}
+.pbox b{font-size:.88rem;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pbox small{font-size:.74rem;color:var(--muted);font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pbox.start{background:hsl(210 45% 92%);border-color:hsl(210 40% 80%);color:#1E2230}
+.pbox.end{background:hsl(268 55% 90%);border-color:hsl(268 45% 78%);color:#1E2230}
+.pbox.apex{background:hsl(152 45% 88%);border-color:hsl(152 35% 72%);color:#1E2230}
+.pbox.start small,.pbox.end small,.pbox.apex small{color:#4A5064}
+.situer{margin-top:14px;display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--bg);border-radius:999px;padding:7px 14px;font:700 .82rem var(--font);color:var(--ink);cursor:pointer}
+.situer:hover{border-color:#8C7CF0}
 .crumbs{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;padding:6px clamp(18px,4vw,44px) 0;font-size:.88rem;font-weight:600}
 .crumbs[hidden]{display:none}
 .unions{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:10px clamp(18px,4vw,44px) 0;font-size:.85rem}
@@ -119,6 +144,7 @@ aside{position:sticky;top:20px;display:flex;flex-direction:column;gap:16px}
 <div class="finder"><div class="fbox"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M20 20l-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><input id="q" type="search" placeholder="Rechercher une personne (nom, prénom, année)" autocomplete="off" aria-label="Rechercher une personne"></div><div id="res" class="res" role="listbox" hidden></div></div>
 <nav class="crumbs" id="crumbs" aria-label="Chemin" hidden></nav>
 <div class="unions" id="unionSel" hidden></div>
+<div id="pathOv" class="pov" hidden><div class="pmodal" role="dialog" aria-modal="true" aria-label="Situer dans la famille"><div class="phead"><span>Situer dans la famille</span><button id="pathClose" aria-label="Fermer">✕</button></div><div id="pathBody"></div></div></div>
 <div class="stage">
   <div class="wheel"><svg id="svg" role="img" aria-label="Roue généalogique"></svg><div id="tip" role="tooltip"></div></div>
   <aside>
@@ -340,7 +366,7 @@ function tipShow(n){
   const g=gen(n), br=g>=3?BR[branchOf(n)].name:null;
   const row=(l,e)=>e&&(e[0]||e[2])?`<div class="tl">${l}</div><div class="tv">${esc([e[0],e[2]].filter(Boolean).join(', '))}</div>`:'';
   const oc=p[3]?p[3].charAt(0).toUpperCase()+p[3].slice(1):'';
-  tip.innerHTML=`<div class="tn">${esc(p[0])} ${esc(p[1])}</div><span class="tr" style="background:${color(n)}">${relation(n)}${br?', '+br:''}</span>${row('Naissance',p[4])}${p[5]?(row('Décès',p[5])||'<div class="tl">Décès</div><div class="tv">Date inconnue</div>'):''}${oc?`<div class="tl">Profession</div><div class="tv">${esc(oc)}</div>`:''}${sibHTML(S[n])}`;
+  tip.innerHTML=`<div class="tn">${esc(p[0])} ${esc(p[1])}</div><span class="tr" style="background:${color(n)}">${relation(n)}${br?', '+br:''}</span>${row('Naissance',p[4])}${p[5]?(row('Décès',p[5])||'<div class="tl">Décès</div><div class="tv">Date inconnue</div>'):''}${oc?`<div class="tl">Profession</div><div class="tv">${esc(oc)}</div>`:''}${sibHTML(S[n])}${g>=3?`<button class="situer" data-path="${S[n]}">⤴ Situer dans la famille</button>`:''}`;
   tip.classList.add('on');
 }
 function tipMove(e){
@@ -385,12 +411,12 @@ function select(n){
   const card=document.getElementById('card');
   if(n===1 && CPL){
     const a=person(2), b=person(3), my=P['__C'][10];
-    card.innerHTML=`<h2>${esc(first(a[0],a[2])+' '+a[1])} et ${esc(first(b[0],b[2])+' '+b[1])}</h2><div class="rel">Couple au centre de la roue${my?', mariés en '+my:''}${unionsOf(ROOT).length>1?'. Autre union disponible au-dessus de la roue.':''}</div>${sibHTML(ROOT).replace(/class="tl"/g,'class="rel"')}`;
+    card.innerHTML=`<h2>${esc(first(a[0],a[2])+' '+a[1])} et ${esc(first(b[0],b[2])+' '+b[1])}</h2><div class="rel">Couple au centre de la roue${my?', mariés en '+my:''}${unionsOf(ROOT).length>1?'. Autre union disponible au-dessus de la roue.':''}</div>${sibHTML(ROOT).replace(/class="tl"/g,'class="rel"')}<button class="situer" data-path="${ROOT}">⤴ Situer dans la famille</button>`;
     return;
   }
   if(n===1 && ROOT!==KIDS){
     const p=P[ROOT]; const f2=(lab,e)=>e&&(e[0]||e[2])?`<div class="fact"><span>${lab}</span><b>${esc([e[0],e[2]].filter(Boolean).join(', '))}</b></div>`:'';
-    card.innerHTML=`<h2>${esc(p[0])} ${esc(p[1])}</h2><div class="rel">Au centre de la roue</div><div class="facts">${f2('Naissance',p[4])}${p[5]?(f2('Décès',p[5])||'<div class="fact"><span>Décès</span><b>Date inconnue</b></div>'):''}${p[3]?`<div class="fact"><span>Profession</span><b>${esc(p[3].charAt(0).toUpperCase()+p[3].slice(1))}</b></div>`:''}</div>${sibHTML(ROOT).replace('class="tl"','class="rel"')}`;
+    card.innerHTML=`<h2>${esc(p[0])} ${esc(p[1])}</h2><div class="rel">Au centre de la roue</div><div class="facts">${f2('Naissance',p[4])}${p[5]?(f2('Décès',p[5])||'<div class="fact"><span>Décès</span><b>Date inconnue</b></div>'):''}${p[3]?`<div class="fact"><span>Profession</span><b>${esc(p[3].charAt(0).toUpperCase()+p[3].slice(1))}</b></div>`:''}</div>${sibHTML(ROOT).replace('class="tl"','class="rel"')}<button class="situer" data-path="${ROOT}">⤴ Situer dans la famille</button>`;
     return;
   }
   if(n===1){
@@ -445,6 +471,116 @@ function crumbs(){
 
 }
 syncBtns();
+// ---- "Situer dans la famille": relationship path diagram
+const ADJ={};
+function adj(id){
+  if(ADJ[id]) return ADJ[id];
+  const p=P[id], out=[];
+  if(!p) return (ADJ[id]=out);
+  if(p[6]&&P[p[6]]) out.push([p[6],'up']);
+  if(p[7]&&P[p[7]]) out.push([p[7],'up']);
+  for(const f of (p[9]||[])){
+    if(f[0]&&P[f[0]]) out.push([f[0],'sp']);
+    for(const c of f[2]) if(P[c]) out.push([c,'down']);
+  }
+  return (ADJ[id]=out);
+}
+function findPath(from,to){
+  const prev={[from]:null}, q=[from];
+  // prefer blood links: explore up/down before spouse at equal depth
+  while(q.length){
+    const u=q.shift(); if(u===to) break;
+    const nb=adj(u).slice().sort((a,b)=>(a[1]==='sp')-(b[1]==='sp'));
+    for(const [v,t] of nb){ if(!(v in prev)){ prev[v]=[u,t]; q.push(v); } }
+  }
+  if(!(to in prev)) return null;
+  const path=[]; let v=to;
+  while(v!==from){ const [u,t]=prev[v]; path.unshift([v,t]); v=u; }
+  path.unshift([from,null]);
+  return path;
+}
+const F=(p,m,f)=>p[2]==='F'?f:m;
+function arr(k){ return 'arrière-'.repeat(Math.max(0,k)); }
+function kin(a,b,p){
+  if(b===0){
+    if(a===1) return F(p,'Père','Mère');
+    if(a===2) return F(p,'Grand-père','Grand-mère');
+    if(a<=4) return arr(a-2).replace(/^./,c=>c.toUpperCase())+F(p,'grand-père','grand-mère');
+    return F(p,'Ancêtre direct','Ancêtre directe')+`, ${a}e génération`;
+  }
+  if(a===0){ return b===1?F(p,'Fils','Fille'):'Descendant'; }
+  if(a===1&&b===1) return F(p,'Frère','Sœur');
+  if(a===1) return (b===2?'':arr(b-3).replace(/^./,c=>c.toUpperCase())+(b>=3?'petit-':'')).replace(/^p/,'P')+F(p,'neveu','nièce').replace(/^./,c=>b===2?c.toUpperCase():c);
+  if(b===1){ if(a===2) return F(p,'Oncle','Tante'); return (arr(a-3)+'grand-').replace(/^./,c=>c.toUpperCase())+F(p,'oncle','tante'); }
+  if(a===2&&b===2) return F(p,'Cousin germain','Cousine germaine');
+  if(a===3&&b===3) return F(p,'Petit-cousin (issu de germain)','Petite-cousine (issue de germain)');
+  if(a===3&&b===2) return F(p,'Oncle à la mode de Bretagne','Tante à la mode de Bretagne');
+  if(a===2&&b===3) return F(p,'Neveu à la mode de Bretagne','Nièce à la mode de Bretagne');
+  if(a===4&&b===4) return F(p,'Arrière-petit-cousin','Arrière-petite-cousine');
+  return F(p,'Cousin éloigné','Cousine éloignée');
+}
+function describe(path){
+  const x=path[path.length-1][0], px=P[x];
+  const steps=path.slice(1).map(s=>s[1]);
+  const pure=s=>{let i=0;while(i<s.length&&s[i]==='up')i++;const a=i;while(i<s.length&&s[i]==='down')i++;return i===s.length?[a,s.length-a]:null;};
+  let r=pure(steps);
+  if(r){ const [a,b]=r; return {label:kin(a,b,px), sub:(a&&b)?`Parent par le sang, au ${a+b}e degré. Ancêtre commun à ${a} génération${a>1?'s':''} au-dessus de César et Léon.`:(b===0?'Ancêtre direct de César et Léon.':'')}; }
+  if(steps[steps.length-1]==='sp'){ r=pure(steps.slice(0,-1)); if(r){ const y=path[path.length-2][0]; const [a,b]=r; const ky=kin(a,b,P[y]).toLowerCase(); return {label:F(px,'Conjoint','Conjointe')+(/^[AEIOUYÉÈH]/i.test(first(P[y][0],P[y][2]))?" d'":' de ')+first(P[y][0],P[y][2])+' '+P[y][1], sub:`${first(P[y][0],P[y][2])} est ${ky==='père'||ky==='mère'?'le '+ky:ky.match(/^(tante|mère|grand-mère|cousine|nièce|sœur|arrière)/)?'la '+ky:'le '+ky} de César et Léon.`}; } }
+  return {label:'Parent par alliance', sub:'Lien établi par un ou plusieurs mariages.'};
+}
+function openPath(id){
+  if(!P[id]) return;
+  const path=findPath('900002',id);
+  const ov=document.getElementById('pathOv'), body=document.getElementById('pathBody');
+  if(!path){ body.innerHTML='<p class="hint">Aucun lien trouvé avec César et Léon dans le fichier.</p>'; ov.hidden=false; return; }
+  // layout
+  let col=0,lvl=0,prevT=null; const nodes=[];
+  path.forEach(([v,t],i)=>{
+    if(i>0){
+      if(t==='up'){ lvl++; if(prevT==='sp') {} }
+      else if(t==='down'){ lvl--; if(prevT!=='down') col++; }
+      else { col++; }
+    }
+    nodes.push({id:v,t,col,lvl}); prevT=t;
+  });
+  const maxL=Math.max(...nodes.map(n=>n.lvl)), minL=Math.min(...nodes.map(n=>n.lvl)), maxC=Math.max(...nodes.map(n=>n.col));
+  const BW=214,BH=58,GX=250,GY=92,PAD=16;
+  const W=(maxC+1)*GX-(GX-BW)+PAD*2, H=(maxL-minL+1)*GY-(GY-BH)+PAD*2;
+  const X=n=>PAD+n.col*GX, Y=n=>PAD+(maxL-n.lvl)*GY;
+  let lines='';
+  for(let i=1;i<nodes.length;i++){
+    const a=nodes[i-1], b=nodes[i];
+    const ax=X(a)+BW/2, bx=X(b)+BW/2;
+    if(b.t==='sp'){ const y=Y(a)+BH/2; lines+=`<path d="M${X(a)+BW} ${y}H${X(b)}" class="pl sp"/><text x="${(X(a)+BW+X(b))/2}" y="${y-6}" class="pinf">∞</text>`; }
+    else { const top=b.t==='up'?b:a, bot=b.t==='up'?a:b; const ty=Y(top)+BH, by=Y(bot), mid=(ty+by)/2, tx=X(top)+BW/2, bx2=X(bot)+BW/2; lines+=`<path d="M${tx} ${ty}V${mid}H${bx2}V${by}" class="pl"/>`; }
+  }
+  const apexIdx=nodes.reduce((m,n,i)=>n.lvl>nodes[m].lvl?i:m,0);
+  const boxes=nodes.map((n,i)=>{
+    const p=P[n.id]; const isStart=i===0, isEnd=i===nodes.length-1;
+    let name=isStart?'César et Léon':(first(p[0],p[2])+' '+p[1]);
+    let sub=isStart?'2019 et 2022':yrs(p);
+    if(i===apexIdx&&i>0&&i<nodes.length-1){
+      const kids=[nodes[i-1],nodes[i+1]].filter(x=>x&&x.lvl<n.lvl).map(x=>x.id);
+      const c=P[kids[0]]; const other=c&&[c[6],c[7]].find(z=>z&&z!==n.id&&P[z]);
+      if(other) sub=(sub?sub+' · ':'')+'avec '+first(P[other][0],P[other][2])+' '+P[other][1];
+    }
+    const cls='pbox'+(isStart?' start':'')+(isEnd?' end':'')+(i===apexIdx&&!isStart&&!isEnd?' apex':'');
+    return `<button class="${cls}" data-go="${isStart?'900002':n.id}" style="left:${X(n)}px;top:${Y(n)}px;width:${BW}px;height:${BH}px"><b>${esc(name)}</b><small>${esc(sub||'')}</small></button>`;
+  }).join('');
+  const d=describe(path);
+  body.innerHTML=`<div class="plabel"><span>${esc(P[id][0]+' '+P[id][1])}</span><h3>${esc(d.label)}</h3>${d.sub?`<p>${esc(d.sub)}</p>`:''}</div>
+    <div class="pscroll"><div class="pcanvas" style="width:${W}px;height:${H}px"><svg width="${W}" height="${H}">${lines}</svg>${boxes}</div></div>
+    <p class="hint">Cliquez sur une personne du chemin pour la placer au centre de la roue.</p>`;
+  ov.hidden=false; tipHide();
+  document.getElementById('pathClose').focus();
+}
+function closePath(){ document.getElementById('pathOv').hidden=true; }
+document.getElementById('pathClose').onclick=closePath;
+document.getElementById('pathOv').addEventListener('mousedown',e=>{ if(e.target.id==='pathOv') closePath(); });
+document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&!document.getElementById('pathOv').hidden){ e.stopImmediatePropagation(); closePath(); } },true);
+document.getElementById('pathOv').addEventListener('click',e=>{ const b=e.target.closest('[data-go]'); if(b){ closePath(); } },true);
+document.addEventListener('click',e=>{ const b=e.target.closest('[data-path]'); if(b){ openPath(b.dataset.path); } });
+
 // ---- search
 const norm=s=>(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
 const ANC=new Set(); (function w(id){ if(!id||!P[id]||ANC.has(id)) return; ANC.add(id); w(P[id][6]); w(P[id][7]); })(KIDS); ANC.add('900003');
