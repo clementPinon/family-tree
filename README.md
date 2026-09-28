@@ -1,6 +1,6 @@
 # Family tree
 
-Private static site: ancestry wheel (`/`), classic tree (`/arbre.html`) and GEDCOM export (`/genealogie.ged`).
+Private static site: `/` shows two tabs, the ancestry wheel (`/roue.html`) and the classic tree (`/arbre.html`), plus a GEDCOM export (`/genealogie.ged`).
 
 ## Deploy on Vercel
 
@@ -11,7 +11,7 @@ Private static site: ancestry wheel (`/`), classic tree (`/arbre.html`) and GEDC
 
 ## Updating
 
-Replace `index.html`, `arbre.html` and `genealogie.ged` with the new versions and commit. Vercel redeploys automatically.
+Replace `roue.html`, `arbre.html` and `genealogie.ged` with the new versions and commit. Keep the `__cur` / `__go` hooks at the end of `roue.html` and `arbre.html`: the tabs in `index.html` use them to keep the same person across views. Vercel redeploys automatically.
 
 ## Privacy layers
 

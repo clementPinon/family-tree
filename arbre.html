@@ -91,6 +91,8 @@ section.chart{padding:24px 0 40px;min-width:0}
 .g4 .box{width:190px} .g5 .box{width:180px;padding:4px 8px 4px 11px} .g5 .box .s{display:none}
 .nav{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
 .nav button{border:1px solid var(--rule);background:transparent;padding:4px 12px;border-radius:3px;cursor:pointer}
+.situer{margin-top:12px;border:1px solid var(--rule);background:transparent;padding:4px 12px;border-radius:3px;cursor:pointer}
+.situer:hover{background:var(--hi)}
 @media (prefers-reduced-motion:no-preference){ .fade{animation:f .25s ease-out} @keyframes f{from{opacity:.3}to{opacity:1}} }
 </style>
 </head>
@@ -149,10 +151,13 @@ function evList(evs){
   if(!evs.length) return '';
   return '<dl>'+evs.map(e=>`<dt>${LAB[e[0]]}</dt><dd>${esc([e[1],e[3]?'à '+e[3]:''].filter(Boolean).join(' ')||'date inconnue')}${e[4]?`<span class="enote">${esc(e[4])}</span>`:''}</dd>`).join('')+'</dl>';
 }
+// "Situer dans la famille" lives in the wheel; only offered when this page is inside the tabs and the wheel knows the person
+function canSituer(id){ if(id==='900002') return false; /* César: the path starts from him */ try{ return parent!==window && typeof parent.__has==='function' && parent.__has(id); }catch(e){ return false; } }
 function card(id){
   const p=P[id]; let h=`<h2 class="pname">${esc(name(p))}</h2>`;
   if(p[8]) h+=`<div class="sosa">Sosa n° ${fmtN(p[8])}, génération ${Math.floor(Math.log2(p[8]))+1}</div>`;
   if(p[3]) h+=`<p class="occ">${esc(p[3])}</p>`;
+  if(canSituer(id)) h+=`<button class="situer" data-situer="${id}">⤴ Situer dans la famille</button>`;
   if(p[6].length) h+='<h3>Événements</h3>'+evList(p[6]);
   if(p[4]||p[5]) h+='<h3>Parents</h3><ul class="pl">'+[p[4],p[5]].filter(x=>P[x]).map(x=>`<li>${link(x)}</li>`).join('')+'</ul>';
   if(p[10]&&p[10].length) h+='<h3>Parent adoptif</h3><ul class="pl">'+p[10].filter(x=>P[x]).map(x=>`<li>${link(x)}</li>`).join('')+'</ul>';
@@ -182,7 +187,7 @@ function show(id,push=true){
   document.getElementById('card').innerHTML=card(cur); draw();
   if(push){try{history.replaceState(null,'','#'+cur)}catch(e){}}
 }
-document.body.addEventListener('click',e=>{const b=e.target.closest('[data-id]'); if(b){show(b.dataset.id); document.getElementById('res').classList.remove('on'); if(window.innerWidth<860&&b.closest('aside'))window.scrollTo({top:0});}});
+document.body.addEventListener('click',e=>{const s=e.target.closest('[data-situer]'); if(s){try{parent.__situer(s.dataset.situer)}catch(err){} return;} const b=e.target.closest('[data-id]'); if(b){show(b.dataset.id); document.getElementById('res').classList.remove('on'); if(window.innerWidth<860&&b.closest('aside'))window.scrollTo({top:0});}});
 const norm=s=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
 const idx=ids.map(k=>[k,norm(P[k][0]+' '+P[k][1]+' '+P[k][1]+' '+P[k][0])]);
 const q=document.getElementById('q'), res=document.getElementById('res');
@@ -198,5 +203,9 @@ let start=location.hash.slice(1);
 if(!P[start]) start=ids.find(k=>P[k][8]===1)||ids[0];
 show(start,false);
 </script>
-</body>
+<script>
+// Hooks used by the Roue | Arbre tabs (index.html)
+window.__cur=()=>cur;
+window.__go=id=>{ if(P[id]&&id!==cur) show(id,false); };
+</script></body>
 </html>
