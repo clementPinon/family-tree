@@ -74665,7 +74665,7 @@
 1 BIRT
 2 DATE 20 FEB 1876
 2 PLAC San Giorgio a Cremano, , , , ITALIE
-1 NOTE Source : acte de mariage n° 12, Hussein-Dey (Algérie), 13 août 1904 (ANOM). Âges des parents lus sur l'acte, lecture à vérifier.
+1 NOTE Source : acte de mariage n° 12, Hussein-Dey (Algérie), 13 août 1904 (ANOM).
 2 CONT Source : acte de naissance n° 4, Saint-Eugène (Algérie), 12 janvier 1912 (ANOM).
 1 FAMC @F900151@
 1 FAMS @F900150@
@@ -74677,7 +74677,7 @@
 1 BIRT
 2 DATE 7 OCT 1882
 2 PLAC Santa Eulària (Ibiza), , , Baléares, ESPAGNE
-1 NOTE Source : acte de mariage n° 12, Hussein-Dey (Algérie), 13 août 1904 (ANOM). Âges des parents lus sur l'acte, lecture à vérifier.
+1 NOTE Source : acte de mariage n° 12, Hussein-Dey (Algérie), 13 août 1904 (ANOM).
 2 CONT Source : acte de naissance n° 4, Saint-Eugène (Algérie), 12 janvier 1912 (ANOM).
 1 FAMC @F900152@
 1 FAMS @F900150@
@@ -74689,8 +74689,10 @@
 1 OCCU Commerçant
 1 BIRT
 2 DATE ABT 1831
-2 NOTE 73 ans en 1904 (lecture à vérifier).
-1 NOTE Source : acte de mariage n° 12, Hussein-Dey (Algérie), 13 août 1904 (ANOM). Âges des parents lus sur l'acte, lecture à vérifier.
+2 PLAC San Giorgio a Cremano, , , , ITALIE
+2 NOTE 73 ans en 1904. Lieu de naissance supposé, à vérifier dans les registres de San Giorgio a Cremano.
+1 NOTE Source : acte de mariage n° 12, Hussein-Dey (Algérie), 13 août 1904 (ANOM).
+2 CONT Lecture confirmée par l'oncle de Christelle sur l'acte original.
 1 FAMS @F900151@
 0 @I900083@ INDI
 1 NAME Marie /VANACORE/
@@ -74699,8 +74701,9 @@
 1 SEX F
 1 BIRT
 2 DATE ABT 1834
-2 NOTE 70 ans en 1904 (lecture à vérifier).
-1 NOTE Source : acte de mariage n° 12, Hussein-Dey (Algérie), 13 août 1904 (ANOM). Âges des parents lus sur l'acte, lecture à vérifier.
+2 NOTE 70 ans en 1904.
+1 NOTE Prénom lu « Marie-Gia ? » par l'oncle de Christelle, à préciser.
+2 CONT Source : acte de mariage n° 12, Hussein-Dey (Algérie), 13 août 1904 (ANOM).
 1 FAMS @F900151@
 0 @I900084@ INDI
 1 NAME Jean /FERRER/
@@ -74710,8 +74713,10 @@
 1 OCCU Cultivateur
 1 BIRT
 2 DATE ABT 1829
-2 NOTE 75 ans en 1904 (lecture à vérifier). Domicilié à Santa Eulària (Ibiza).
-1 NOTE Source : acte de mariage n° 12, Hussein-Dey (Algérie), 13 août 1904 (ANOM). Âges des parents lus sur l'acte, lecture à vérifier.
+2 PLAC , , , , ESPAGNE
+2 NOTE 75 ans lors du mariage de sa fille en 1904. Domicilié à Santa Eulària (Ibiza).
+1 NOTE Source : acte de mariage n° 12, Hussein-Dey (Algérie), 13 août 1904 (ANOM).
+2 CONT Lecture confirmée par l'oncle de Christelle sur l'acte original.
 1 FAMS @F900152@
 0 @I900085@ INDI
 1 NAME Catherine /MARÍ/
@@ -74719,10 +74724,11 @@
 2 SURN MARÍ
 1 SEX F
 1 DEAT
-2 DATE 13 AUG 1892
+2 DATE 13 AUG 1896
 2 PLAC Sant Carles (Ibiza), , , Baléares, ESPAGNE
-1 NOTE Nom noté « Mari Catherine » sur l'acte, à la manière espagnole (nom puis prénom).
-2 CONT Source : acte de mariage n° 12, Hussein-Dey (Algérie), 13 août 1904 (ANOM). Âges des parents lus sur l'acte, lecture à vérifier.
+1 NOTE Nom noté « Mari Catherine » sur l'acte, à la manière espagnole (nom puis prénom). Nom exact à confirmer.
+2 CONT Source : acte de mariage n° 12, Hussein-Dey (Algérie), 13 août 1904 (ANOM).
+2 CONT Lecture confirmée par l'oncle de Christelle sur l'acte original.
 1 FAMS @F900152@
 0 @I900041@ INDI
 1 NAME Girella /LAURO/
