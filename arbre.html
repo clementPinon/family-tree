@@ -147,9 +147,12 @@ function node(id,level){
   else if(p&&level<gens-1&&level<2) h+='';
   return h+'</div>';
 }
+// "à Paris" but "en Espagne", "au Maroc" when the place is only a country
+const COUNTRY_PREP={'Espagne':'en','Algérie':'en','Italie':'en','France':'en','Belgique':'en','Suisse':'en','Allemagne':'en','Suède':'en','Angleterre':'en','Tunisie':'en','Maroc':'au','Portugal':'au','Canada':'au','États-Unis':'aux'};
+const placeIn=pl=>(COUNTRY_PREP[pl]||'à')+' '+pl;
 function evList(evs){
   if(!evs.length) return '';
-  return '<dl>'+evs.map(e=>`<dt>${LAB[e[0]]}</dt><dd>${esc([e[1],e[3]?'à '+e[3]:''].filter(Boolean).join(' ')||'date inconnue')}${e[4]?`<span class="enote">${esc(e[4])}</span>`:''}</dd>`).join('')+'</dl>';
+  return '<dl>'+evs.map(e=>`<dt>${LAB[e[0]]}</dt><dd>${esc([e[1],e[3]?placeIn(e[3]):''].filter(Boolean).join(' ')||'date inconnue')}${e[4]?`<span class="enote">${esc(e[4])}</span>`:''}</dd>`).join('')+'</dl>';
 }
 // "Situer dans la famille" lives in the wheel; only offered when this page is inside the tabs and the wheel knows the person
 function canSituer(id){ if(id==='900002') return false; /* César: the path starts from him */ try{ return parent!==window && typeof parent.__has==='function' && parent.__has(id); }catch(e){ return false; } }
