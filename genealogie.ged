@@ -74646,13 +74646,84 @@
 1 SEX M
 1 BIRT
 2 DATE 12 JAN 1912
-2 PLAC Algérie, , , , ALGÉRIE
+2 PLAC Saint-Eugène, , , , ALGÉRIE
+2 NOTE Né à 6 h du matin. Parents domiciliés route Malakoff, Saint-Eugène.
 1 DEAT
 2 DATE 9 OCT 1991
 2 PLAC Paris 14e arrondissement, , , , FRANCE
-1 NOTE Source : fichier INSEE des décès (acte-deces.fr). Identification probable, à confirmer par la famille.
-2 CONT Père d'Antoine Raïola (né en 1935) selon le livret de famille.
+1 NOTE Source : acte de naissance n° 4, Saint-Eugène (Algérie), 12 janvier 1912 (ANOM).
+2 CONT Décès : fichier INSEE (acte-deces.fr), date de naissance identique, identification confirmée.
+2 CONT Source : livret de famille Raïola-Costa (Reghaïa, 1958).
+1 FAMC @F900150@
 1 FAMS @F900120@
+0 @I900080@ INDI
+1 NAME Antoine François Geltrude /RAÏOLA/
+2 GIVN Antoine François Geltrude
+2 SURN RAÏOLA
+1 SEX M
+1 OCCU Jardinier (1904), tonnelier (1912)
+1 BIRT
+2 DATE 20 FEB 1876
+2 PLAC San Giorgio a Cremano, , , , ITALIE
+1 NOTE Source : acte de mariage n° 12, Hussein-Dey (Algérie), 13 août 1904 (ANOM). Âges des parents lus sur l'acte, lecture à vérifier.
+2 CONT Source : acte de naissance n° 4, Saint-Eugène (Algérie), 12 janvier 1912 (ANOM).
+1 FAMC @F900151@
+1 FAMS @F900150@
+0 @I900081@ INDI
+1 NAME Catherine Joséphine Eulalie /FERRER/
+2 GIVN Catherine Joséphine Eulalie
+2 SURN FERRER
+1 SEX F
+1 BIRT
+2 DATE 7 OCT 1882
+2 PLAC Santa Eulària (Ibiza), , , Baléares, ESPAGNE
+1 NOTE Source : acte de mariage n° 12, Hussein-Dey (Algérie), 13 août 1904 (ANOM). Âges des parents lus sur l'acte, lecture à vérifier.
+2 CONT Source : acte de naissance n° 4, Saint-Eugène (Algérie), 12 janvier 1912 (ANOM).
+1 FAMC @F900152@
+1 FAMS @F900150@
+0 @I900082@ INDI
+1 NAME Jean /RAÏOLA/
+2 GIVN Jean
+2 SURN RAÏOLA
+1 SEX M
+1 OCCU Commerçant
+1 BIRT
+2 DATE ABT 1831
+2 NOTE 73 ans en 1904 (lecture à vérifier).
+1 NOTE Source : acte de mariage n° 12, Hussein-Dey (Algérie), 13 août 1904 (ANOM). Âges des parents lus sur l'acte, lecture à vérifier.
+1 FAMS @F900151@
+0 @I900083@ INDI
+1 NAME Marie /VANACORE/
+2 GIVN Marie
+2 SURN VANACORE
+1 SEX F
+1 BIRT
+2 DATE ABT 1834
+2 NOTE 70 ans en 1904 (lecture à vérifier).
+1 NOTE Source : acte de mariage n° 12, Hussein-Dey (Algérie), 13 août 1904 (ANOM). Âges des parents lus sur l'acte, lecture à vérifier.
+1 FAMS @F900151@
+0 @I900084@ INDI
+1 NAME Jean /FERRER/
+2 GIVN Jean
+2 SURN FERRER
+1 SEX M
+1 OCCU Cultivateur
+1 BIRT
+2 DATE ABT 1829
+2 NOTE 75 ans en 1904 (lecture à vérifier). Domicilié à Santa Eulària (Ibiza).
+1 NOTE Source : acte de mariage n° 12, Hussein-Dey (Algérie), 13 août 1904 (ANOM). Âges des parents lus sur l'acte, lecture à vérifier.
+1 FAMS @F900152@
+0 @I900085@ INDI
+1 NAME Catherine /MARÍ/
+2 GIVN Catherine
+2 SURN MARÍ
+1 SEX F
+1 DEAT
+2 DATE 13 AUG 1892
+2 PLAC Sant Carles (Ibiza), , , Baléares, ESPAGNE
+1 NOTE Nom noté « Mari Catherine » sur l'acte, à la manière espagnole (nom puis prénom).
+2 CONT Source : acte de mariage n° 12, Hussein-Dey (Algérie), 13 août 1904 (ANOM). Âges des parents lus sur l'acte, lecture à vérifier.
+1 FAMS @F900152@
 0 @I900041@ INDI
 1 NAME Girella /LAURO/
 2 GIVN Girella
@@ -105900,4 +105971,19 @@
 1 MARR
 2 DATE 24 NOV 1990
 2 PLAC Choisy-le-Roi, , Val-de-Marne, Île-de-France, FRANCE
+0 @F900150@ FAM
+1 HUSB @I900080@
+1 WIFE @I900081@
+1 CHIL @I900040@
+1 MARR
+2 DATE 13 AUG 1904
+2 PLAC Hussein-Dey, , , , ALGÉRIE
+0 @F900151@ FAM
+1 HUSB @I900082@
+1 WIFE @I900083@
+1 CHIL @I900080@
+0 @F900152@ FAM
+1 HUSB @I900084@
+1 WIFE @I900085@
+1 CHIL @I900081@
 0 TRLR
