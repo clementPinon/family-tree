@@ -505,8 +505,8 @@ function kin(a,b,p){
   if(b===0){
     if(a===1) return F(p,'Père','Mère');
     if(a===2) return F(p,'Grand-père','Grand-mère');
-    if(a<=4) return arr(a-2).replace(/^./,c=>c.toUpperCase())+F(p,'grand-père','grand-mère');
-    return F(p,'Ancêtre direct','Ancêtre directe')+`, ${a}e génération`;
+    if(a<=7) return arr(a-2).replace(/^./,c=>c.toUpperCase())+F(p,'grand-père','grand-mère');
+    return F(p,'Ancêtre direct','Ancêtre directe')+`, ${a} générations au-dessus de César et Léon`;
   }
   if(a===0){ return b===1?F(p,'Fils','Fille'):'Descendant'; }
   if(a===1&&b===1) return F(p,'Frère','Sœur');
