@@ -74661,7 +74661,7 @@
 2 GIVN Antoine François Geltrude
 2 SURN RAÏOLA
 1 SEX M
-1 OCCU Jardinier (1904), tonnelier (1907 à 1916)
+1 OCCU Jardinier (1904, 1918), tonnelier (1907 à 1916)
 1 BIRT
 2 DATE 20 FEB 1876
 2 PLAC San Giorgio a Cremano, , , , ITALIE
@@ -74670,6 +74670,7 @@
 2 CONT Source : acte de naissance n° 32, Hussein-Dey (Algérie), 24 mars 1907 (ANOM). Tonnelier, 31 ans, domicilié à Hussein-Dey. Ne savait pas signer.
 2 CONT Source : acte de naissance n° 16, Saint-Eugène (Algérie), 2 février 1915 (ANOM). Tonnelier, domicilié à Saint-Eugène.
 2 CONT Source : acte de naissance n° 85, Saint-Eugène (Algérie), 28 novembre 1916 (ANOM). Tonnelier, 40 ans.
+2 CONT Source : acte de naissance n° 97, Saint-Eugène (Algérie), 2 décembre 1918 (ANOM). Jardinier, 42 ans.
 1 FAMC @F900151@
 1 FAMS @F900150@
 0 @I900081@ INDI
@@ -74685,6 +74686,7 @@
 2 CONT Source : acte de naissance n° 32, Hussein-Dey (Algérie), 24 mars 1907 (ANOM). 24 ans, sans profession.
 2 CONT Source : acte de naissance n° 16, Saint-Eugène (Algérie), 2 février 1915 (ANOM).
 2 CONT Source : acte de naissance n° 85, Saint-Eugène (Algérie), 28 novembre 1916 (ANOM). 34 ans, sans profession.
+2 CONT Source : acte de naissance n° 97, Saint-Eugène (Algérie), 2 décembre 1918 (ANOM). 36 ans, sans profession.
 1 FAMC @F900152@
 1 FAMS @F900150@
 0 @I900082@ INDI
@@ -84741,6 +84743,17 @@
 2 PLAC Saint-Eugène, , , , ALGÉRIE
 2 NOTE Né le matin, déclaré le 28 novembre 1916 par la sage-femme qui a assisté à l'accouchement.
 1 NOTE Source : acte de naissance n° 85, Saint-Eugène (Algérie), 28 novembre 1916 (ANOM).
+1 FAMC @F900150@
+0 @I900089@ INDI
+1 NAME Robert Victor /RAÏOLA/
+2 GIVN Robert Victor
+2 SURN RAÏOLA
+1 SEX M
+1 BIRT
+2 DATE 2 DEC 1918
+2 PLAC Saint-Eugène, , , , ALGÉRIE
+2 NOTE Né à 9 h du matin, déclaré le jour même par la sage-femme qui a assisté à l'accouchement.
+1 NOTE Source : acte de naissance n° 97, Saint-Eugène (Algérie), 2 décembre 1918 (ANOM).
 1 FAMC @F900150@
 0 @F21233@ FAM
 1 HUSB @I17164@
@@ -106023,6 +106036,7 @@
 1 CHIL @I900040@
 1 CHIL @I900087@
 1 CHIL @I900088@
+1 CHIL @I900089@
 1 MARR
 2 DATE 13 AUG 1904
 2 PLAC Hussein-Dey, , , , ALGÉRIE
