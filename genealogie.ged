@@ -74661,12 +74661,13 @@
 2 GIVN Antoine François Geltrude
 2 SURN RAÏOLA
 1 SEX M
-1 OCCU Jardinier (1904), tonnelier (1912)
+1 OCCU Jardinier (1904), tonnelier (1907, 1912)
 1 BIRT
 2 DATE 20 FEB 1876
 2 PLAC San Giorgio a Cremano, , , , ITALIE
 1 NOTE Source : acte de mariage n° 12, Hussein-Dey (Algérie), 13 août 1904 (ANOM).
 2 CONT Source : acte de naissance n° 4, Saint-Eugène (Algérie), 12 janvier 1912 (ANOM).
+2 CONT Source : acte de naissance n° 32, Hussein-Dey (Algérie), 24 mars 1907 (ANOM). Tonnelier, 31 ans, domicilié à Hussein-Dey. Ne savait pas signer.
 1 FAMC @F900151@
 1 FAMS @F900150@
 0 @I900081@ INDI
@@ -74679,6 +74680,7 @@
 2 PLAC Santa Eulària (Ibiza), , , Baléares, ESPAGNE
 1 NOTE Source : acte de mariage n° 12, Hussein-Dey (Algérie), 13 août 1904 (ANOM).
 2 CONT Source : acte de naissance n° 4, Saint-Eugène (Algérie), 12 janvier 1912 (ANOM).
+2 CONT Source : acte de naissance n° 32, Hussein-Dey (Algérie), 24 mars 1907 (ANOM). 24 ans, sans profession.
 1 FAMC @F900152@
 1 FAMS @F900150@
 0 @I900082@ INDI
@@ -84703,6 +84705,17 @@
 1 NOTE Source : arbre Geneanet d'Olivier Puron (kerficel), export du 24 sept. 2026.
 1 FAMC @F920226@
 1 FAMS @F920225@
+0 @I900086@ INDI
+1 NAME Jean /RAÏOLA/
+2 GIVN Jean
+2 SURN RAÏOLA
+1 SEX M
+1 BIRT
+2 DATE 22 MAR 1907
+2 PLAC Hussein-Dey, , , , ALGÉRIE
+2 NOTE Né à 21 h, déclaré le 24 mars 1907 par son père. Mention « italien » en marge.
+1 NOTE Source : acte de naissance n° 32, Hussein-Dey (Algérie), 24 mars 1907 (ANOM).
+1 FAMC @F900150@
 0 @F21233@ FAM
 1 HUSB @I17164@
 1 WIFE @I10574@
@@ -105980,6 +105993,7 @@
 0 @F900150@ FAM
 1 HUSB @I900080@
 1 WIFE @I900081@
+1 CHIL @I900086@
 1 CHIL @I900040@
 1 MARR
 2 DATE 13 AUG 1904
